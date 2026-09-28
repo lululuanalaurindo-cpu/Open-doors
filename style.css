@@ -1,0 +1,1021 @@
+/* =========================================================
+   Etec de Portas Abertas — Terapias Alternativas
+   Folha de estilos externa (CSS3)
+   ========================================================= */
+
+/* -------------------------
+   1. Variáveis e tema
+   ------------------------- */
+:root {
+    --bg: #f7f4ed;
+    --surface: #fffdf8;
+    --text: #17352d;
+    --muted: #66766f;
+    --brand: #0d6b57;
+    --brand2: #c59a4a;
+    --line: rgba(23, 53, 45, 0.12);
+    --shadow: 0 18px 50px rgba(23, 53, 45, 0.10);
+}
+
+[data-theme="dark"] {
+    --bg: #0d1714;
+    --surface: #13211d;
+    --text: #eef6f1;
+    --muted: #a9b9b1;
+    --brand: #56b59b;
+    --brand2: #d8b56d;
+    --line: rgba(255, 255, 255, 0.12);
+    --shadow: 0 18px 55px rgba(0, 0, 0, 0.32);
+}
+
+/* -------------------------
+   2. Base / tipografia
+   ------------------------- */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+    overflow-x: hidden;
+}
+
+/* -------------------------
+   3. Navegação
+   ------------------------- */
+.navbar {
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--line);
+}
+
+.brand {
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--text) !important;
+}
+
+.brand-mark {
+    width: 34px;
+    height: 34px;
+    display: grid;
+    place-items: center;
+    border-radius: 12px;
+    background: linear-gradient(135deg, var(--brand), var(--brand2));
+    color: white;
+    box-shadow: 0 8px 22px rgba(13, 107, 87, 0.25);
+}
+
+.nav-link {
+    color: var(--text) !important;
+}
+
+.dropdown-menu {
+    background: var(--surface);
+    border-color: var(--line);
+}
+
+.dropdown-item {
+    color: var(--text);
+}
+
+/* -------------------------
+   4. Hero e títulos
+   ------------------------- */
+.hero {
+    position: relative;
+    padding: 7rem 0 5rem;
+    background:
+        radial-gradient(circle at 85% 20%, rgba(197, 154, 74, 0.18), transparent 32%),
+        radial-gradient(circle at 10% 0%, rgba(13, 107, 87, 0.13), transparent 35%);
+}
+
+.hero::after {
+    content: "✦  ·  ✦  ·  ✦";
+    position: absolute;
+    right: 5%;
+    top: 12%;
+    font-size: 1.4rem;
+    letter-spacing: 1rem;
+    color: var(--brand2);
+    opacity: 0.55;
+    animation: float 7s ease-in-out infinite;
+}
+
+.display-title {
+    font-size: clamp(3.5rem, 8vw, 7.8rem);
+    font-weight: 900;
+    line-height: 0.92;
+    letter-spacing: -0.06em;
+}
+
+.gradient-text {
+    background: linear-gradient(100deg, var(--text), var(--brand), var(--brand2));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.section {
+    padding: 6rem 0;
+}
+
+.section-soft {
+    background: linear-gradient(180deg, transparent, rgba(13, 107, 87, 0.055), transparent);
+}
+
+.section-title {
+    font-size: clamp(2rem, 4vw, 4rem);
+    font-weight: 850;
+    letter-spacing: -0.04em;
+}
+
+.eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: var(--brand);
+}
+
+.divider {
+    width: 90px;
+    height: 4px;
+    border-radius: 99px;
+    background: linear-gradient(90deg, var(--brand), var(--brand2));
+    margin: 1.25rem 0;
+}
+
+/* -------------------------
+   5. Botões e badges
+   ------------------------- */
+.btn-brand {
+    background: var(--brand);
+    border-color: var(--brand);
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-brand::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    transform: translateX(-120%);
+    background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+    animation: shimmer 3.2s infinite;
+}
+
+.btn-outline-brand {
+    border-color: var(--brand);
+    color: var(--brand);
+}
+
+.btn-outline-brand:hover {
+    background: var(--brand);
+    color: #fff;
+}
+
+.badge-soft {
+    background: color-mix(in srgb, var(--brand) 12%, transparent);
+    color: var(--brand);
+    border: 1px solid color-mix(in srgb, var(--brand) 25%, transparent);
+}
+
+/* -------------------------
+   6. Cards e imagens
+   ------------------------- */
+.therapy-card,
+.info-card,
+.quote {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 28px;
+    box-shadow: var(--shadow);
+}
+
+.therapy-card {
+    overflow: hidden;
+    transition: 0.45s transform, 0.45s box-shadow;
+}
+
+.therapy-card:hover {
+    transform: translateY(-10px) rotate(-0.35deg);
+    box-shadow: 0 28px 70px rgba(23, 53, 45, 0.18);
+}
+
+.therapy-card .visual,
+.media-frame {
+    height: 310px;
+    overflow: hidden;
+    position: relative;
+}
+
+.therapy-card img,
+.media-frame img,
+.carousel-img {
+    transition: transform 0.8s ease, filter 0.6s ease;
+}
+
+.therapy-card:hover img,
+.media-frame:hover img {
+    transform: scale(1.07) rotate(0.7deg);
+    filter: saturate(1.15) brightness(1.05);
+}
+
+.media-frame {
+    border-radius: 28px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--line);
+}
+
+.symbol {
+    position: absolute;
+    right: 18px;
+    top: 16px;
+    color: white;
+    text-shadow: 0 0 18px var(--brand2);
+    font-size: 1.6rem;
+    animation: pulseGlow 3s infinite;
+}
+
+.carousel-img {
+    height: 540px;
+    object-fit: cover;
+}
+
+.carousel-caption {
+    bottom: 1.2rem;
+}
+
+.mini-note {
+    border-left: 3px solid var(--brand2);
+    padding: 0.8rem 1rem;
+    color: var(--muted);
+    background: color-mix(in srgb, var(--brand2) 8%, transparent);
+    border-radius: 0 12px 12px 0;
+}
+
+.quote {
+    padding: 2rem;
+    position: relative;
+}
+
+.quote::before {
+    content: "“";
+    font-size: 5rem;
+    position: absolute;
+    left: 1rem;
+    top: -1rem;
+    color: var(--brand2);
+    opacity: 0.45;
+}
+
+/* -------------------------
+   7. Formulários
+   ------------------------- */
+.form-control,
+.form-select {
+    background: var(--surface);
+    color: var(--text);
+    border-color: var(--line);
+    padding: 0.9rem 1rem;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--brand);
+    box-shadow: 0 0 0 0.25rem color-mix(in srgb, var(--brand) 18%, transparent);
+}
+
+/* O campo de comentário não pode ser redimensionado manualmente. */
+textarea {
+    resize: none;
+}
+
+/* -------------------------
+   8. Restrições / accordion
+   ------------------------- */
+.accordion-item {
+    background: var(--surface);
+    color: var(--text);
+    border-color: var(--line);
+    margin-bottom: 1rem;
+    border-radius: 18px !important;
+    overflow: hidden;
+    box-shadow: 0 10px 35px rgba(23, 53, 45, 0.07);
+}
+
+.accordion-button {
+    background: var(--surface);
+    color: var(--text);
+    font-weight: 800;
+    padding: 1.4rem;
+}
+
+.accordion-button:not(.collapsed) {
+    background: color-mix(in srgb, var(--brand) 8%, var(--surface));
+    color: var(--text);
+}
+
+.restriction-card {
+    border-left: 5px solid var(--brand);
+    padding: 1.4rem;
+    background: var(--surface);
+    border-radius: 0 20px 20px 0;
+    box-shadow: var(--shadow);
+}
+
+.credit-person {
+    padding: 1rem 1.1rem;
+    border: 1px dashed var(--line);
+    border-radius: 16px;
+    background: color-mix(in srgb, var(--brand) 4%, var(--surface));
+    color: var(--muted);
+}
+
+.credit-person strong {
+    color: var(--text);
+}
+
+/* -------------------------
+   9. Rodapé e botão topo
+   ------------------------- */
+.footer {
+    border-top: 1px solid var(--line);
+    background: var(--surface);
+}
+
+.footer a {
+    color: var(--muted);
+    text-decoration: none;
+    margin: 0.35rem 0;
+}
+
+.footer a:hover {
+    color: var(--brand);
+}
+
+.top-btn,
+.back-to-top {
+    position: fixed;
+    right: 22px;
+    bottom: 22px;
+    width: 50px;
+    height: 50px;
+    display: grid;
+    place-items: center;
+    border: 0;
+    border-radius: 50%;
+    background: var(--text);
+    color: var(--bg);
+    font-size: 1.55rem;
+    font-weight: 900;
+    line-height: 1;
+    box-shadow: 0 14px 30px rgba(0, 0, 0, .18);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(18px);
+    transition: opacity .3s ease, transform .3s ease, box-shadow .3s ease;
+    z-index: 1080;
+}
+
+.top-btn.show,
+.back-to-top.show {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+.top-btn:hover,
+.back-to-top:hover {
+    box-shadow: 0 18px 36px rgba(0, 0, 0, .24);
+    transform: translateY(-3px);
+}
+
+/* -------------------------
+   10. Animações / reveal
+   ------------------------- */
+.reveal {
+    opacity: 0;
+    transform: translateY(35px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal-left {
+    transform: translateX(-45px);
+}
+
+.reveal-right {
+    transform: translateX(45px);
+}
+
+.reveal.is-visible {
+    opacity: 1;
+    transform: none;
+}
+
+@keyframes shimmer {
+    50%,
+    100% {
+        transform: translateX(120%);
+    }
+}
+
+@keyframes float {
+    50% {
+        transform: translateY(18px) rotate(4deg);
+    }
+}
+
+@keyframes pulseGlow {
+    50% {
+        transform: scale(1.25);
+        opacity: 0.7;
+    }
+}
+
+/* -------------------------
+   11. Responsividade
+   ------------------------- */
+@media (max-width: 991px) {
+    .hero {
+        padding-top: 5rem;
+    }
+
+    .carousel-img {
+        height: 420px;
+    }
+
+    .section {
+        padding: 4.5rem 0;
+    }
+}
+
+@media (max-width: 575px) {
+    .display-title {
+        font-size: 3.4rem;
+    }
+
+    .carousel-img {
+        height: 330px;
+    }
+
+    .therapy-card .visual,
+    .media-frame {
+        height: 250px;
+    }
+
+    .top-btn {
+        right: 15px;
+        bottom: 15px;
+    }
+}
+
+
+/* -------------------------
+   11. Correções de composição e leitura
+   ------------------------- */
+.hero h1,
+.display-title,
+.section-title {
+    overflow-wrap: anywhere;
+    word-break: normal;
+}
+
+.therapy-hero .display-title {
+    max-width: 100%;
+    padding-top: .15em;
+}
+
+.hero-kicker {
+    font-weight: 700;
+    color: var(--brand);
+    letter-spacing: .02em;
+    margin-bottom: 1rem;
+}
+
+.media-frame {
+    min-height: 360px;
+}
+
+.media-frame figcaption {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: .85rem 1rem;
+    background: linear-gradient(transparent, rgba(0,0,0,.78));
+    color: #fff;
+    font-size: .85rem;
+}
+
+.media-frame figcaption a {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.source-card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 26px;
+    box-shadow: var(--shadow);
+}
+
+.application-image {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    transition: transform .7s ease, filter .6s ease;
+}
+
+.image-link:hover .application-image {
+    transform: scale(1.025);
+    filter: saturate(1.08) brightness(1.03);
+}
+
+.cta-panel {
+    border-radius: 30px;
+    border: 1px solid var(--line);
+    background: linear-gradient(135deg, color-mix(in srgb, var(--brand) 11%, var(--surface)), color-mix(in srgb, var(--brand2) 10%, var(--surface)));
+    box-shadow: var(--shadow);
+}
+
+.guideline-visual {
+    min-height: 330px;
+    border-radius: 32px;
+    background: radial-gradient(circle at 50% 45%, color-mix(in srgb, var(--brand2) 28%, transparent), transparent 35%), linear-gradient(135deg, color-mix(in srgb, var(--brand) 18%, var(--surface)), var(--surface));
+    border: 1px solid var(--line);
+    box-shadow: var(--shadow);
+    display: grid;
+    place-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.guideline-visual span {
+    position: absolute;
+    color: var(--brand2);
+    font-size: 1.5rem;
+    animation: float 5s ease-in-out infinite;
+}
+.guideline-visual span:nth-child(1){top:20%;left:22%}
+.guideline-visual span:nth-child(2){top:35%;right:18%;animation-delay:1s}
+.guideline-visual span:nth-child(3){bottom:22%;left:35%;animation-delay:2s}
+.guideline-visual p {font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:var(--brand);}
+
+.guideline-tip {
+    margin-top: 1.2rem;
+    border-left: 3px solid var(--brand2);
+    padding: .9rem 1rem;
+    background: color-mix(in srgb, var(--brand2) 8%, transparent);
+    border-radius: 0 14px 14px 0;
+    color: var(--text);
+}
+.guideline-tip span { color: var(--brand2); margin-right: .5rem; }
+
+.person-card {
+    position: relative;
+    border: 1px solid var(--line);
+    border-radius: 26px;
+    background: var(--surface);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+}
+.person-number {
+    display: inline-grid;
+    place-items: center;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background: color-mix(in srgb, var(--brand) 12%, transparent);
+    color: var(--brand);
+    font-weight: 900;
+}
+.person-line { height: 2px; background: linear-gradient(90deg,var(--brand),var(--brand2),transparent); margin: 1rem 0; }
+
+.footer {
+    border-top: 1px solid var(--line);
+}
+.footer-phrase { font-weight: 700; color: var(--text); }
+
+.list-check { padding-left: 1.2rem; }
+.list-check li { margin-bottom: .9rem; }
+
+@media (max-width: 991.98px) {
+    .hero { padding-top: 5rem; }
+    .display-title { font-size: clamp(3rem, 13vw, 5.5rem); }
+    .section { padding: 4.5rem 0; }
+    .carousel-img { height: 430px; }
+}
+
+@media (max-width: 575.98px) {
+    .hero { padding-top: 4rem; }
+    .display-title { font-size: clamp(2.7rem, 16vw, 4.4rem); }
+    .section-title { font-size: clamp(1.9rem, 9vw, 3rem); }
+    .carousel-img { height: 330px; }
+    .media-frame { min-height: 270px; }
+}
+
+
+/* -------------------------
+   11. Correções de composição e leitura
+   ------------------------- */
+.hero h1,
+.display-title,
+.section-title {
+    overflow-wrap: anywhere;
+    word-break: normal;
+}
+
+.therapy-hero .display-title {
+    max-width: 100%;
+    padding-top: .15em;
+}
+
+.hero-kicker {
+    font-weight: 700;
+    color: var(--brand);
+    letter-spacing: .02em;
+    margin-bottom: 1rem;
+}
+
+.media-frame {
+    min-height: 360px;
+}
+
+.media-frame figcaption {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: .85rem 1rem;
+    background: linear-gradient(transparent, rgba(0,0,0,.78));
+    color: #fff;
+    font-size: .85rem;
+}
+
+.media-frame figcaption a {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.source-card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 26px;
+    box-shadow: var(--shadow);
+}
+
+.application-image {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    transition: transform .7s ease, filter .6s ease;
+}
+
+.image-link:hover .application-image {
+    transform: scale(1.025);
+    filter: saturate(1.08) brightness(1.03);
+}
+
+.cta-panel {
+    border-radius: 30px;
+    border: 1px solid var(--line);
+    background: linear-gradient(135deg, color-mix(in srgb, var(--brand) 11%, var(--surface)), color-mix(in srgb, var(--brand2) 10%, var(--surface)));
+    box-shadow: var(--shadow);
+}
+
+.guideline-visual {
+    min-height: 330px;
+    border-radius: 32px;
+    background: radial-gradient(circle at 50% 45%, color-mix(in srgb, var(--brand2) 28%, transparent), transparent 35%), linear-gradient(135deg, color-mix(in srgb, var(--brand) 18%, var(--surface)), var(--surface));
+    border: 1px solid var(--line);
+    box-shadow: var(--shadow);
+    display: grid;
+    place-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.guideline-visual span {
+    position: absolute;
+    color: var(--brand2);
+    font-size: 1.5rem;
+    animation: float 5s ease-in-out infinite;
+}
+.guideline-visual span:nth-child(1){top:20%;left:22%}
+.guideline-visual span:nth-child(2){top:35%;right:18%;animation-delay:1s}
+.guideline-visual span:nth-child(3){bottom:22%;left:35%;animation-delay:2s}
+.guideline-visual p {font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:var(--brand);}
+
+.guideline-tip {
+    margin-top: 1.2rem;
+    border-left: 3px solid var(--brand2);
+    padding: .9rem 1rem;
+    background: color-mix(in srgb, var(--brand2) 8%, transparent);
+    border-radius: 0 14px 14px 0;
+    color: var(--text);
+}
+.guideline-tip span { color: var(--brand2); margin-right: .5rem; }
+
+.person-card {
+    position: relative;
+    border: 1px solid var(--line);
+    border-radius: 26px;
+    background: var(--surface);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+}
+.person-number {
+    display: inline-grid;
+    place-items: center;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background: color-mix(in srgb, var(--brand) 12%, transparent);
+    color: var(--brand);
+    font-weight: 900;
+}
+.person-line { height: 2px; background: linear-gradient(90deg,var(--brand),var(--brand2),transparent); margin: 1rem 0; }
+
+.footer {
+    border-top: 1px solid var(--line);
+}
+.footer-phrase { font-weight: 700; color: var(--text); }
+
+.list-check { padding-left: 1.2rem; }
+.list-check li { margin-bottom: .9rem; }
+
+@media (max-width: 991.98px) {
+    .hero { padding-top: 5rem; }
+    .display-title { font-size: clamp(3rem, 13vw, 5.5rem); }
+    .section { padding: 4.5rem 0; }
+    .carousel-img { height: 430px; }
+}
+
+@media (max-width: 575.98px) {
+    .hero { padding-top: 4rem; }
+    .display-title { font-size: clamp(2.7rem, 16vw, 4.4rem); }
+    .section-title { font-size: clamp(1.9rem, 9vw, 3rem); }
+    .carousel-img { height: 330px; }
+    .media-frame { min-height: 270px; }
+}
+
+/* Ajustes finais de leitura e composição */
+.display-title {
+    line-height: 1.04;
+    padding-top: .08em;
+    padding-bottom: .12em;
+}
+
+.section-title {
+    line-height: 1.14;
+    padding-top: .06em;
+    padding-bottom: .08em;
+}
+
+.hero-kicker {
+    margin-top: 1.15rem;
+    margin-bottom: 1.35rem;
+}
+
+.founder-card {
+    border: 1px solid var(--line);
+    border-radius: 28px;
+    background: var(--surface);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+}
+
+.founder-photo {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    display: block;
+}
+
+.founder-photo--portrait {
+    object-position: center top;
+}
+
+.origin-note {
+    border-left: 3px solid var(--brand2);
+    padding-left: 1rem;
+}
+
+.contact-shell {
+    max-width: 820px;
+    margin-inline: auto;
+}
+
+.contact-form-card {
+    border: 1px solid var(--line);
+    border-radius: 24px;
+    background: var(--surface);
+    box-shadow: var(--shadow);
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--brand);
+    box-shadow: 0 0 0 .2rem color-mix(in srgb, var(--brand) 16%, transparent);
+}
+
+@media (max-width: 575.98px) {
+    .top-btn,
+    .back-to-top {
+        right: 15px;
+        bottom: 15px;
+        width: 46px;
+        height: 46px;
+    }
+}
+
+
+.guideline-visual {
+    min-height: 330px;
+    position: relative;
+}
+
+.guideline-visual > img {
+    min-height: 330px;
+    display: block;
+}
+
+.guideline-overlay {
+    position: absolute;
+    left: 1.25rem;
+    bottom: 1.25rem;
+}
+
+.guideline-overlay .badge {
+    background: rgba(255, 253, 248, .92);
+    color: #17352d;
+    box-shadow: 0 10px 25px rgba(0,0,0,.16);
+}
+
+[data-theme="dark"] .guideline-overlay .badge {
+    background: rgba(19, 33, 29, .92);
+    color: #eef6f1;
+}
+
+/* =========================================================
+   Ajustes finais de navegação e legibilidade
+   ========================================================= */
+.navbar .nav-link {
+    position: relative;
+    border-radius: 12px;
+    transition: color .25s ease, background .25s ease, transform .25s ease, box-shadow .25s ease;
+    isolation: isolate;
+}
+
+.navbar .nav-link::before {
+    content: "";
+    position: absolute;
+    inset: 5px;
+    border-radius: 10px;
+    background: linear-gradient(120deg, rgba(13,107,87,.20), rgba(197,154,74,.24), rgba(112,75,190,.18));
+    opacity: 0;
+    transform: scale(.82);
+    z-index: -1;
+    transition: opacity .25s ease, transform .25s ease;
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link:focus-visible,
+.navbar .nav-link.nav-active {
+    color: var(--text) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(13,107,87,.13);
+}
+
+.navbar .nav-link:hover::before,
+.navbar .nav-link:focus-visible::before,
+.navbar .nav-link.nav-active::before {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.navbar .nav-link.nav-active::after {
+    content: "";
+    position: absolute;
+    left: 14px;
+    right: 14px;
+    bottom: 1px;
+    height: 3px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, var(--brand), #8a5cf6, var(--brand2));
+    box-shadow: 0 0 12px rgba(138,92,246,.35);
+}
+
+.dropdown-item {
+    border-radius: 10px;
+    transition: background .2s ease, transform .2s ease, padding-left .2s ease;
+}
+
+.dropdown-item:hover,
+.dropdown-item:focus,
+.dropdown-item.nav-active {
+    background: linear-gradient(100deg, rgba(13,107,87,.12), rgba(138,92,246,.10));
+    transform: translateX(3px);
+    padding-left: 1.15rem;
+}
+
+.navbar .dropdown-toggle.nav-active::after {
+    color: #8a5cf6;
+}
+
+/* Evita que títulos encostem no conteúdo seguinte ou sejam cortados. */
+main h1,
+main h2,
+main h3,
+main h4,
+main h5,
+main h6 {
+    overflow: visible;
+    line-height: 1.18;
+    padding-top: .08em;
+    padding-bottom: .14em;
+}
+
+.section-title + p,
+.section-title + .lead,
+.display-title + p,
+main h2 + p,
+main h3 + p {
+    margin-top: 1rem !important;
+}
+
+/* Campo opcional de comentário com aparência acolhedora sem torná-lo obrigatório. */
+#comment:focus {
+    border-color: #63b58e;
+    box-shadow: 0 0 0 .2rem rgba(99,181,142,.18);
+}
+
+.comment-hint {
+    color: #4b9b75;
+    font-weight: 600;
+}
+
+/* Estado de foco acessível. */
+.navbar a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid rgba(138,92,246,.45);
+    outline-offset: 3px;
+}
+
+/* Botão de topo restaurado: seta limpa, sem texto. */
+.back-to-top {
+    position: fixed;
+    right: 28px;
+    bottom: 28px;
+    width: 52px;
+    height: 52px;
+    border: 1px solid rgba(255,255,255,.18);
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    z-index: 1030;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(16px) scale(.88);
+    transition: opacity .25s ease, visibility .25s ease, transform .25s ease, box-shadow .25s ease;
+    background: linear-gradient(135deg, var(--brand), #6f52d9);
+    color: #fff;
+    font-size: 1.45rem;
+    line-height: 1;
+    box-shadow: 0 12px 30px rgba(23,53,45,.25);
+    cursor: pointer;
+}
+
+.back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+}
+
+.back-to-top:hover {
+    transform: translateY(-4px) scale(1.06);
+    box-shadow: 0 18px 38px rgba(111,82,217,.32);
+}
+
+@media (max-width: 991.98px) {
+    .navbar .nav-link.nav-active::after { display: none; }
+    .navbar .nav-link { padding: .65rem .8rem; }
+}
+
+/* Final teacher-review adjustments */
+.care-list {
+  margin: 0;
+  padding-left: 1.2rem;
+  color: var(--text-muted, #68736f);
+}
+.care-list li { margin-bottom: .65rem; }
+.section-title { line-height: 1.16; padding-top: .12em; padding-bottom: .12em; }
+.display-title { line-height: 1.08; padding-top: .08em; padding-bottom: .08em; }
